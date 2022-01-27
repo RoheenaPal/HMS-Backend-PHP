@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
     if(in_array($fileActualExt, $allowed)){
         if($fileError===0){
             if($fileSize<1000000000){
-                $fileNameNew=uniqid('', true).".".;
+                $fileNameNew=uniqid('', true).".".
                 $fileDestination='uploads/'.$fileNameNew;
                 move_uploaded_file($fileTmpName, $fileDestination);
                 header("location:notice_upload.php?uploadsuccess");
