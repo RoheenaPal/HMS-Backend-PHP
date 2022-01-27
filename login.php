@@ -28,7 +28,7 @@
 
         <button type="submit" name="reg_user">Submit</button>
 
-        <p>Not a user?Then register yourself<a href="registration.php"><b>Register</b></a></p>
+        <p>Not a user?Then register yourself <a href="registration.php"><b>Register</b></a></p>
 </form>
 
 </body>

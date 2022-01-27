@@ -20,7 +20,7 @@ if($db){
 
 //Register users
 
-$roll=mysqli_real_escape_string($db, $_POST['Roll Number']);
+$roll=mysqli_real_escape_string($db, $_POST['RollNumber']);
 $username=mysqli_real_escape_string($db, $_POST['Name']);
 $email=mysqli_real_escape_string($db, $_POST['Email']);
 $password=mysqli_real_escape_string($db, $_POST['Password']);
@@ -56,7 +56,7 @@ if($user){
 }
 if(count($errors)===0){
     $password=md5($password);//This will encrypt the password
-    $query="INSERT INTO user information(Name,Email,password) VALUES ('$username','$email', '$password')";
+    $query="INSERT INTO user information (Name,Email,password) VALUES ('$username','$email', '$password')";
     mysqli_query($db, $query);
     $SESSION['Name']=$username;
     $SESSION['success']="You are now logged in";
@@ -64,6 +64,38 @@ if(count($errors)===0){
     header('location:index.php');
 
     
+}
+
+//Login user
+
+if(isset($_POST['login_user'])){
+    $username=mysqli_real_escape_string($db, $_POST['username']);
+    $password=mysqli_real_escape_string($db, $_POST['password']);
+
+    if(empty($username)){
+        array_push($errors,"Username is required");
+    }
+
+    if(empty($password)){
+        array_push($errors,"Password is required");
+    }
+
+    if(count($errors)==0){
+        $password=md5($password);
+
+        $query="SELECT * FROM user information WHERE username='$username' AND password='$password'";
+        $result=mysqli_query($db, $query);
+
+    if(mysqli_num_result($result)){
+
+        $_SESSION['username']=$username;
+        $_SESSION['success']="Logged in successfully";
+        header('location:index.php');
+    }
+    else{
+        array_push($errors, "Wrong username or password.Please try again");
+    }
+    }
 }
 
 

@@ -1,5 +1,6 @@
 <?php 
-if(count($errors)>0):?>
+$errors=array();
+if(count($errors)>0): ?>
 
 <div>
     <?php
