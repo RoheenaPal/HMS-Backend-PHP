@@ -1,4 +1,4 @@
-<?php include('server.php') ?>
+
 <!doctype html>
 <html>
     <head>
@@ -10,13 +10,13 @@
             <h2>Register</h2>
         </div>
 
-        <form action="registration.php" method="post">
+        <form action="server.php" method="post">
 
         <?php include('errors.php') ?>
 
         <div>
             <label for="username">Name</label>
-            <input type="text" name="username" required>
+            <input type="text" class="form-control" id="username" name="username" required>
         </div>
 
         <div>
@@ -25,24 +25,30 @@
         </div>
 
         <div>
-            <label for="contact">Contact Number</label>
+            <label for="contact">Contact_Number</label>
             <input type="text" name="contact" reqired>
         </div>
 
         <div>
-            <label for="father's name">Father's Name</label>
-            <input type="text" name="father's name" reqired>
+            <label for="fatherName">Father_Name</label>
+            <input type="text" name="fatherName" reqired>
         </div>
 
         <div>
-            <label for="mother's name">Mother's Name</label>
-            <input type="text" name="mother's name" reqired>
+            <label for="motherName">Mother_Name</label>
+            <input type="text" name="motherName" reqired>
         </div>
         
         <div>
             <label for="department">Department</label>
             <input type="text" name="department" reqired>
         </div>
+
+        <div>
+            <label for="rollNumber">Roll_Number</label>
+            <input type="text" name="rollNumber" reqired>
+        </div>
+
 
         <div>
             <label for="year">Year</label>
@@ -52,22 +58,22 @@
 
 
         <div>
-            <label for="address">Permanent Address</label>
+            <label for="address">Permanent_Address</label>
             <input type="text" name="address" reqired>
         </div>
 
         <div>
-            <label for="blood group">Blood Group</label>
-            <input type="text" name="blood group" reqired>
+            <label for="bloodGroup">Blood_Group</label>
+            <input type="text" name="bloodGroup" reqired>
         </div>
 
         <div>
-            <label for="identification">Image of candidate</label>
+            <label for="identification">Image_of_candidate</label>
             <input type="image" name="identification" reqired>
         </div>
 
         <div>
-            <label for="identity">ID Proof</label>
+            <label for="identity">ID_Proof</label>
             <input type="image" name="identity" reqired>
         </div>
 

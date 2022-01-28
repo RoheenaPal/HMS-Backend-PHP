@@ -20,10 +20,18 @@ if($db){
 
 //Register users
 
-$roll=mysqli_real_escape_string($db, $_POST['RollNumber']);
-$username=mysqli_real_escape_string($db, $_POST['Name']);
-$email=mysqli_real_escape_string($db, $_POST['Email']);
-$password=mysqli_real_escape_string($db, $_POST['Password']);
+$username=$_POST['username'];
+$email=$_POST['email'];
+$contact=$_POST['contact'];
+$fatherName=$_POST['fatherName'];
+$motherName=$_POST['motherName'];
+$department=$_POST['department'];
+$rollNumber=$_POST['rollNumber'];
+$year=$_POST['year'];
+$address=$_POST['address'];
+$bloodGroup=$_POST['bloodGroup'];
+$password=$_POST['password'];
+
 
 //Form Validation
 
@@ -44,7 +52,7 @@ if(empty($password)){
 
 $user_check_query="SELECT * FROM user information WHERE Name='$username'and Email='$email' LIMIT 1";
 $result=mysqli_query($db, $user_check_query);
-$user=mysqli_fetch($result);
+$user=mysqli_fetch_array($result);
 
 if($user){
     if($user['Name']===$username){
@@ -56,7 +64,7 @@ if($user){
 }
 if(count($errors)===0){
     $password=md5($password);//This will encrypt the password
-    $query="INSERT INTO user information (Name,Email,password) VALUES ('$username','$email', '$password')";
+    $query="INSERT INTO user information (Name,Email,Contact_Number,Father_Name,Mother_Name,Department,Roll_Number,Year,Permanent_Address,Blood_Group,,Password) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
     mysqli_query($db, $query);
     $SESSION['Name']=$username;
     $SESSION['success']="You are now logged in";
